@@ -11,6 +11,7 @@ onMounted(() => {
     .get('https://my-json-server.typicode.com/xiaoyoufung/331-intro-to-vite-mock-server/events')
     .then((response) => {
       console.log(response.data)
+      events.value = response.data
     })
     .catch((error) => {
       console.error('There was an error!', error)

@@ -12,8 +12,6 @@ import { RouterLink, RouterView } from 'vue-router'
         </nav>
       </div>
     </header>
-    <h1>Events For Good</h1>
-    <!-- new element -->
     <RouterView />
   </div>
 </template>

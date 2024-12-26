@@ -2,7 +2,7 @@
 import EventCard from '@/components/EventCard.vue'
 import NewCard from '@/components/NewCard.vue'
 
-import type { Event } from '@/types'
+import { type Event } from '@/types'
 import { ref, onMounted, computed } from 'vue'
 import EventService from '@/services/EventService'
 import { RouterLink } from 'vue-router'

@@ -7,8 +7,12 @@ import { ref, onMounted, computed, watchEffect } from 'vue'
 import EventService from '@/services/EventService'
 import { RouterLink } from 'vue-router'
 
-const events = ref<Event[]>(null)
-
+const events = ref<Event[] | null>(null)
+const totalEvents = ref(0)
+const hasNextPage = computed(() => {
+  const totalPages = Math.ceil(totalEvents.value / 2)
+  return page.value < totalPages
+})
 const props = defineProps({
   page: {
     type: Number,
@@ -22,8 +26,8 @@ onMounted(() => {
   watchEffect(() => {
     EventService.getEvents(2, page.value)
       .then((response) => {
-        console.log(response.data)
         events.value = response.data
+        totalEvents.value = response.headers['x-total-count']
       })
       .catch((error) => {
         console.error('There was an error!', error)
@@ -46,7 +50,10 @@ onMounted(() => {
     >Prev Page</RouterLink
   >
 
-  <RouterLink :to="{ name: 'event-list-view', query: { page: page + 1 } }" rel="next"
+  <RouterLink
+    :to="{ name: 'event-list-view', query: { page: page + 1 } }"
+    rel="next"
+    v-if="hasNextPage"
     >Next Page</RouterLink
   >
 </template>

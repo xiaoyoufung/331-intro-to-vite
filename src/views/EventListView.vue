@@ -5,6 +5,7 @@ import NewCard from '@/components/NewCard.vue'
 import type { Event } from '@/types'
 import { ref, onMounted, computed } from 'vue'
 import EventService from '@/services/EventService'
+import { RouterLink } from 'vue-router'
 
 const events = ref<Event[]>(null)
 
@@ -36,6 +37,16 @@ onMounted(() => {
     <EventCard v-for="event in events" :key="event.id" :event="event" />
     <NewCard v-for="event in events" :key="event.id" :event="event" />
   </div>
+  <RouterLink
+    :to="{ name: 'event-list-view', query: { page: page - 1 } }"
+    rel="prev"
+    v-if="page != 1"
+    >Prev Page</RouterLink
+  >
+
+  <RouterLink :to="{ name: 'event-list-view', query: { page: page + 1 } }" rel="next"
+    >Next Page</RouterLink
+  >
 </template>
 
 <style scoped>

@@ -3,6 +3,7 @@ import { toRefs } from 'vue'
 import { type Event } from '@/types'
 const props = defineProps<{
   event: Event
+  id: string
 }>()
 
 const { event } = toRefs(props)

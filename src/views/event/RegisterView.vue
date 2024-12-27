@@ -8,7 +8,14 @@ const props = defineProps<{
 }>()
 
 const { event } = toRefs(props)
+
+const register = () => {
+  // If the register API is call successful
+  // Pull back to the event details view
+  console.log('Register event')
+}
 </script>
 <template>
   <p>Register event here</p>
+  <button @click="register">Register</button>
 </template>

@@ -10,7 +10,7 @@ import { RouterLink } from 'vue-router'
 const events = ref<Event[] | null>(null)
 const totalEvents = ref(0)
 const hasNextPage = computed(() => {
-  const totalPages = Math.ceil(totalEvents.value / perPage.value)
+  const totalPages = Math.ceil(totalEvents.value / 3)
   return page.value < totalPages
 })
 const props = defineProps({
@@ -29,7 +29,7 @@ const perPage = computed(() => props.perPage)
 
 onMounted(() => {
   watchEffect(() => {
-    EventService.getEvents(perPage.value, page.value)
+    EventService.getEvents(3, page.value)
       .then((response) => {
         events.value = response.data
         totalEvents.value = response.headers['x-total-count']

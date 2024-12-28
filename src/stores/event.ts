@@ -1,15 +1,12 @@
-import type { EventState } from '@/types'
+import type { EventState, Event } from '@/types'
 import { defineStore } from 'pinia'
-export const useEventStore = defineStore('eventMsg', {
+export const useEventStore = defineStore('event', {
   state: (): EventState => ({
-    eventMsg: '',
+    event: null,
   }),
   actions: {
-    updateMessage(eventMsg: string): void {
-      this.eventMsg = eventMsg
-    },
-    resetMessage(): void {
-      this.eventMsg = ''
+    setEvent(event: Event): void {
+      this.event = event
     },
   },
 })

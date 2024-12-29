@@ -46,7 +46,7 @@ onMounted(() => {
   <!-- new element -->
   <div class="events">
     <EventCard v-for="event in events" :key="event.id" :event="event" />
-    <NewCard v-for="event in events" :key="event.id" :event="event" />
+    <!-- <NewCard v-for="event in events" :key="event.id" :event="event" /> -->
     <div class="pagination">
       <RouterLink
         id="page-prev"

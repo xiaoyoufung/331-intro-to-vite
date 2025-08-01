@@ -5,11 +5,13 @@ import { storeToRefs } from 'pinia'
 const store = useMessageStore()
 const { message } = storeToRefs(store)
 import { ref } from 'vue'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const pageSize = ref(2)
 </script>
 
 <template>
+  <SpeedInsights />
   <div class="text-center font-sans text-gray-700 antialiased">
     <header>
       <div id="flashMessage" class="animate-fade" v-if="message">

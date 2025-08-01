@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+// import { ref } from 'vue'
 import type { Event } from '@/types'
 defineProps<{
   event: Event
@@ -19,8 +19,10 @@ defineProps<{
 </script>
 
 <template>
-  <div class="event-class">
-    <div class="event-card">
+  <div>
+    <div
+      class="cursor-pointer border border-gray-600 p-[20px] w-[250px] mb-[18px] hover:scale-101 hover:shadow-sp"
+    >
       <p>{{ event.category }}</p>
       <span>by {{ event.organizer }} </span>
     </div>
@@ -28,7 +30,7 @@ defineProps<{
 </template>
 
 <style scoped>
-.event-card {
+/* .event-card {
   padding: 20px;
   width: 250px;
   cursor: pointer;
@@ -40,5 +42,5 @@ defineProps<{
 .event-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-}
+} */
 </style>

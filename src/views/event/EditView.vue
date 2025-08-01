@@ -2,7 +2,7 @@
 import { toRefs } from 'vue'
 import { type Event } from '@/types'
 import { useRouter } from 'vue-router'
-import { useEventStore } from '@/stores/event'
+import { useMessageStore } from '@/stores/message'
 
 const props = defineProps<{
   event: Event
@@ -11,7 +11,7 @@ const props = defineProps<{
 
 const { event } = toRefs(props)
 const router = useRouter()
-const store = useEventStore()
+const store = useMessageStore()
 
 const edit = () => {
   store.updateMessage('You are successfully edited for ' + props.event.title)
